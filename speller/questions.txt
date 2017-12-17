@@ -1,0 +1,22 @@
+0. What is pneumonoultramicroscopicsilicovolcanoconiosis?
+    A word invented (most likely) by Everett M. Smith, meaning a lung disease caused by inhaling fine ash.
+
+1. According to its man page, what does getrusage do?
+    Returns resource usage measures.
+
+2. Per that same man page, how many members are in a variable of type struct rusage?
+    16
+
+3. Why do you think we pass before and after by reference (instead of by value) to calculate, even though we’re not changing their contents?
+    So that if calculate is changed in the future to affect their contents they are using a reference instead of their value (a rule of thumb, so to speak).
+
+4. Explain as precisely as possible, in a paragraph or more, how main goes about reading words from a file. In other words, convince us that you indeed understand how that function’s for loop works.
+    The for loop turns c into an int based on the character code of the next character in the file (and will end when the character is the end of file code).  While checking each charcter in the file it checks what ti character is.
+    If the character is alphanumeric, that character is appended to word (unless the string is too long to be a word, then it just skips over it and starts again (by setting index to 0).  If the word has a number it skips it.  Then,
+    if it is a new word it checks the spelling of the word.
+
+5. Why do you think we used fgetc to read each word’s characters one at a time rather than use fscanf with a format string like "%s" to read whole words at a time? Put another way, what problems might arise by relying on fscanf alone?
+    If you grab the whole word then you have to go back through and check each individual character anyway to skip words with numbers or disallowed characters.
+
+6. Why do you think we declared the parameters for check and load as const (which means "constant")?
+    This ensures that those parameters will not get changed as the program runs.
